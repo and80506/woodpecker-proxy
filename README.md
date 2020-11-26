@@ -12,7 +12,7 @@ woodpecker-log 提供了一种解决方案，将浏览器JS请求代理到目标
 ### 安装
 #### 通过 `script` 外链标签引用
 
-将 [dist/wp-log.umd.js](https://github.com/and80506/woodpecker/blob/master/dist/wp-log.umd.js) 直接内联到 `<head>` 标签中，并置于**所有资源开始加载之前**。
+将 [dist/wp-log.umd.js](https://github.com/and80506/woodpecker-log/blob/main/dist/wp-log.umd.js) 直接内联到 `<head>` 标签中，并置于**所有资源开始加载之前**。
 
 #### 通过 `script` 内联标签引用
 
@@ -20,10 +20,12 @@ woodpecker-log 提供了一种解决方案，将浏览器JS请求代理到目标
 
 ### 配置
 提供regex参数以正则匹配待调试JS的path部分，得到待调试目标JS数组后，辅助protocol、host参数以替换成代理服务器JS地址。
+```ascii
     foo://example.com:8042/over/there?name=ferret#nose
     \_/   \______________/\_________/ 
      |           |            |       
   protocol     host          path    
+```
 - path: 数组类型，表示path匹配规则，遍历数组内对象，使用regex匹配待调试JS，然后以replace(regex, value)的方式尝试替换目标JS。必选参数。
 - protocol: 字符串类型，指定代理后JS地址的协议。如`http:`表示将以http协议从代理服务器上加载JS。可选参数。
 - host: 对象类型，表示将对象key替换为对象value。如`{'example.com': 'log-server.com'}`表示将example.com的JS代理到log-server.com。可选参数。
@@ -59,13 +61,14 @@ woodpecker-log 提供了一种解决方案，将浏览器JS请求代理到目标
 </script>
 ```
 ### Demo
-安装依赖并启动本地server服务:
+安装依赖并启动本地server服务
 ```bash
 $ npm i
 $ npm run build
 $ npm run examples
 ```
 查看Demo，本地浏览器打开http://localhost:5000/demo/
+
 查看示例项目realworld example, http://localhost:5000/examples/realworld/dist/
 ### 可运行示例项目
 执行Demo的npm脚本，另外再进入examples/realworld项目内运行打包脚本。
@@ -78,7 +81,7 @@ cd examples/realworld/src/pages/Home/index.js
 $ npm run log
 ```
 ### 测试
-运行单测及端到端测试:
+运行单测及端到端测试
 ```bash
 $ npm i
 $ npm run lint
@@ -90,8 +93,8 @@ $ npm run e2e
 ### 浏览器兼容性
 
 | <img src="./demo/images/chrome.png" width="48px" height="48px" alt="Chrome logo"> | <img src="./demo/images/safari.png" width="48px" height="48px" alt="Safari logo"> | 
-| :--------------------------------------------------------------------------: | :----------------------------------------------------------------------: | :----------------------------------------------------------------------------: | :---------------------------------------------------------------------------------: | :------------------------------------------------------------------------: | :--------------------------------------------------------------------------: | :-------------------------------------------------------: | :----------------------------------------------------------------------------: |
-|                                    47+ ✔                                     |                                  15+ ✔                                   |                                     32+ ✔                                      |                                        10+ ✔                                        |                                   34+ ✔                                    |                                    10+ ✔                                     |                           10+ ✔                           |                                     4.4+ ✔                                     |
+| :--------------------------------------------------------------------------: | :----------------------------------------------------------------------: | 
+|                                    47+ ✔                                     |                                  15+ ✔                                   |
 
 ### 使用许可
 The MIT License (MIT)
