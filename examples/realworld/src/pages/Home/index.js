@@ -15,7 +15,7 @@ export default class Home extends React.Component {
 
   render() {
     const { tags, token, appName } = this.props.commonStore
-    console.log('test woodpecker-log😁')
+    console.log('test woodpecker-proxy😁')
     return (
       <div className="home-page">
         <Banner token={token} appName={appName} />

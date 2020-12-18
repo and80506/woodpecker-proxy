@@ -1,12 +1,12 @@
-啄木鸟网页日志
+啄木鸟网页JS代理SDK
 ================
 
-动态生成用于网页JS调试的日志
+可用于动态生成用于网页JS调试的日志
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-日志通常用户定位用户问题的时候使用，我们常常需要发布前就在代码中设计好业务关键流程执行时需要打印的日志。否则，当我们需要定位问题的时候，才发现自己并没有输出相关的日志，这样就会比较被动。这个时候只好临时改代码加日志，重新发布。有没有一种方案，可以在遇到问题的时候，再去代码中相应位置加日志，用户执行改业务流程时就能立刻打印出相关日志，而不用重新走一遍发布流程。
+日志通常用户定位用户问题的时候使用，我们常常需要发布前就在代码中设计好业务关键流程执行时需要打印的日志。否则，当我们需要定位问题的时候，才发现自己并没有输出相关的日志会比较被动。这个时候只好临时改代码加日志，重新发布。有没有一种方案，可以在遇到问题的时候，再去代码中相应位置加日志，用户执行改业务流程时就能立刻打印出相关日志，而不用重新走一遍发布流程。
 
-woodpecker-log 提供了一种解决方案，将浏览器JS请求代理到目标服务器，修改JS并发布到目标服务器后你可以在用户端随意打印上报用于调试的log。前提是针对特定JS目标、特定用户生效。
+woodpecker-proxy 提供了一种解决方案，将浏览器JS请求代理到目标服务器，修改JS并发布到目标服务器后你可以在用户端随意打印上报用于调试的log。支持只针对特定JS目标、特定用户生效。
 
 ## ⚠️ 注意
 当前还未被生成环境大规模验证，线上请谨慎使用。
@@ -15,7 +15,7 @@ woodpecker-log 提供了一种解决方案，将浏览器JS请求代理到目标
 ### 安装
 #### 通过 `script` 外链标签引用
 
-将 [dist/wp-log.umd.js](https://github.com/and80506/woodpecker-log/blob/main/dist/wp-log.umd.js) 直接内联到 `<head>` 标签中，并置于**所有资源开始加载之前**。
+将 [dist/wp-log.umd.js](https://github.com/and80506/woodpecker-proxy/blob/main/dist/wp-log.umd.js) 直接内联到 `<head>` 标签中，并置于**所有资源开始加载之前**。
 
 #### 通过 `script` 内联标签引用
 
@@ -79,7 +79,7 @@ $ npm run examples
 # 打包原始JS，得到bundle.js
 cd examples/realworld
 $ npm run build
-# 修改原始JS添加log`console.log('test woodpecker-log😁')`，打包后得到bundle.log.js
+# 修改原始JS添加log`console.log('test woodpecker-proxy😁')`，打包后得到bundle.log.js
 cd examples/realworld/src/pages/Home/index.js
 $ npm run log
 ```

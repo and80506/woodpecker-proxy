@@ -48,7 +48,7 @@ module.exports = {
         new HtmlWebpackPlugin({
           templateParameters: {
             woodpeckerLog: fs
-              .readFileSync(require.resolve('woodpecker-log'))
+              .readFileSync(require.resolve('woodpecker-proxy'))
               .toString()
               .replace(/\n/g, ' ')
               .replace(/\/\*.*\*\//g, ' ')

@@ -1,5 +1,5 @@
 {
-  "name": "woodpecker-log",
+  "name": "woodpecker-proxy",
   "version": "0.1.0",
   "dependencies": {
     "@types/lodash": "^4.14.164",
