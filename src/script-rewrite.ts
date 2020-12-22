@@ -1,6 +1,6 @@
 import isFunction from 'lodash/isFunction';
 import { noop, getRandUid } from './util';
-import { WP_LOG_ID, MESSAGES } from './constants';
+import { WP_PROXY_ID, MESSAGES } from './constants';
 import { getInstance } from './logger';
 const logger = getInstance();
 
@@ -34,8 +34,8 @@ function createNewScript(node: HTMLScriptElement, newSrc: string, wpLogId: strin
             }
         }
     });
-    // 需要先设置标识位，赋值src和type会检查WP_LOG_ID
-    toBeAddedScript.setAttribute(WP_LOG_ID, wpLogId);
+    // 需要先设置标识位，赋值src和type会检查WP_PROXY_ID
+    toBeAddedScript.setAttribute(WP_PROXY_ID, wpLogId);
     toBeAddedScript.src = newSrc;
     toBeAddedScript.type = 'text/javascript';
     toBeAddedScript.onload = function () {
@@ -57,8 +57,8 @@ function createNewScript(node: HTMLScriptElement, newSrc: string, wpLogId: strin
 
 function rewriteSrc(node: HTMLScriptElement, newSrc: string, wpLogId: string, onload = noop) {
     console.log('rewriteSrc', newSrc);
-    // 需要先设置标识位，赋值src和type会检查WP_LOG_ID
-    node.setAttribute(WP_LOG_ID, wpLogId);
+    // 需要先设置标识位，赋值src和type会检查WP_PROXY_ID
+    node.setAttribute(WP_PROXY_ID, wpLogId);
     node.src = newSrc;
     node.type = 'text/javascript';
     const originOnload = node.onload;

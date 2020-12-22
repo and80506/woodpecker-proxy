@@ -40,7 +40,7 @@ woodpecker-proxy 提供了一种解决方案，将浏览器JS请求代理到目�
 ```html
 <script src="../dist/wp-log.umd.js" type="text/javascript"></script>
 <script>
-    Woodpecker.init({
+    WoodpeckerProxy.init({
         path: [
             {
                 regex : /\/js\/script-[1,3]/,

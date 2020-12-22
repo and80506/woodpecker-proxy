@@ -35,7 +35,7 @@ function configureLogger(
  * @param  {String} options.logLevel     - debug、info、warn、error、silent，默认info
  * @param  {String} options.logProvider  - logProviderOptions，默认window.console
  */
-const Woodpecker = function (options: sdkInitOptions, callback: () => any): void {
+const WoodpeckerProxy = function (options: sdkInitOptions, callback: () => any): void {
     configureLogger(options.logLevel, options.logProvider);
     if (!options) {
         throw new Error(ERRORS.ERR_CONFIG_SDK_INIT_OPTION);
@@ -46,10 +46,10 @@ const Woodpecker = function (options: sdkInitOptions, callback: () => any): void
         callback();
     }
 };
-Woodpecker.version = VERSION;
+WoodpeckerProxy.version = VERSION;
 // SDK初始化标记
-Woodpecker._initiated = false;
+WoodpeckerProxy._initiated = false;
 /* ============================外部接口===================================*/
 
-Woodpecker.init = Woodpecker;
-export default Woodpecker;
+WoodpeckerProxy.init = WoodpeckerProxy;
+export default WoodpeckerProxy;

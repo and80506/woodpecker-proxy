@@ -3,9 +3,9 @@ const assertScriptDidNotExecute = (scriptName) =>
     assert(!scriptDidExecute(scriptName), `${scriptName}.js has not been executed`);
 const assertScriptDidExecute = (scriptName) =>
     assert(scriptDidExecute(scriptName), `${scriptName}.js has been executed`);
-describe('Woodpecker', () => {
+describe('WoodpeckerProxy', () => {
     it('should attach to the window object', () => {
-        assert(window.Woodpecker, 'window.Woodpecker is not defined');
+        assert(window.WoodpeckerProxy, 'window.WoodpeckerProxy is not defined');
     });
     it('should block [sync].js scripts', () => {
         assertScriptDidNotExecute('script-1');

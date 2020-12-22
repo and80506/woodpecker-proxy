@@ -7,10 +7,10 @@ import sourceMaps from 'rollup-plugin-sourcemaps';
 
 const pkg = require('./package.json'); // Allow json resolution
 
-const libraryName = 'Woodpecker';
+const libraryName = 'WoodpeckerProxy';
 
 export default {
-    input: `src/woodpecker.ts`,
+    input: `src/index.ts`,
     output: [
         { file: pkg.main, format: 'cjs', sourcemap: true },
         { file: pkg.module, format: 'esm', sourcemap: true },
