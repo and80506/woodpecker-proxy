@@ -14,8 +14,8 @@ export function patchScript(path: rewriteConfig, host: hostConfig, protocol: str
         // 跳过内联Script标签
         if (!src) return false;
         // 跳过重写过的Script标签
-        const wpLogId = node.getAttribute(WP_PROXY_ID);
-        if (wpLogId) return false;
+        const wpProxyId = node.getAttribute(WP_PROXY_ID);
+        if (wpProxyId) return false;
         // 跳过未匹配到path的Script标签
         const newPath = pathRewrite(src);
         if (!newPath) return false;

@@ -15,11 +15,11 @@ woodpecker-proxy 提供了一种解决方案，将浏览器JS请求代理到目�
 ### 安装
 #### 通过 `script` 外链标签引用
 
-将 [dist/wp-log.umd.js](https://github.com/and80506/woodpecker-proxy/blob/main/dist/wp-log.umd.js) 直接内联到 `<head>` 标签中，并置于**所有资源开始加载之前**。
+将 [dist/wp-proxy.umd.js](https://github.com/and80506/woodpecker-proxy/blob/main/dist/wp-proxy.umd.js) 直接内联到 `<head>` 标签中，并置于**所有资源开始加载之前**。
 
 #### 通过 `script` 内联标签引用
 
-使用webpack等打包工具，直接将npm库上的wp-log内容使用script标签包裹后置于html的 `<head>` 标签中。
+使用webpack等打包工具，直接将npm库上的wp-proxy内容使用script标签包裹后置于html的 `<head>` 标签中。
 
 ### 配置
 提供regex参数以正则匹配待调试JS的path部分，得到待调试目标JS数组后，辅助protocol、host参数以替换成代理服务器JS地址。
@@ -38,7 +38,7 @@ woodpecker-proxy 提供了一种解决方案，将浏览器JS请求代理到目�
 ### 快速上手
 安装SDK后，简单初始化待调试目标JS的path规则及代理JS地址规则即可。使用以下配置，`http://localhost:5000/js/script-1.js`将被代理成`http://my-log-server.com/js/script-1.log.js`
 ```html
-<script src="../dist/wp-log.umd.js" type="text/javascript"></script>
+<script src="../dist/wp-proxy.umd.js" type="text/javascript"></script>
 <script>
     WoodpeckerProxy.init({
         path: [

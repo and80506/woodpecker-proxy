@@ -14,9 +14,9 @@ export default {
     output: [
         { file: pkg.main, format: 'cjs', sourcemap: true },
         { file: pkg.module, format: 'esm', sourcemap: true },
-        { file: 'dist/wp-log.umd.js', name: libraryName, format: 'umd', sourcemap: true },
-        { file: 'dist/wp-log.js', name: libraryName, format: 'iife', sourcemap: true },
-        { file: 'e2e/js/wp-log.js', name: libraryName, format: 'iife', sourcemap: true }
+        { file: 'dist/wp-proxy.umd.js', name: libraryName, format: 'umd', sourcemap: true },
+        { file: 'dist/wp-proxy.js', name: libraryName, format: 'iife', sourcemap: true },
+        { file: 'e2e/js/wp-proxy.js', name: libraryName, format: 'iife', sourcemap: true }
     ],
     // Indicate here external modules you don't wanna include in your bundle (i.e.: 'lodash')
     external: [],
